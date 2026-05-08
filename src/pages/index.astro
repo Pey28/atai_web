@@ -146,41 +146,6 @@ const pageDescription =
       .wa-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
       .wa-btn svg { width: 30px; height: 30px; fill: #fff; }
 
-      /* result cards rediseño */
-      .result {
-        min-height: 280px; border-radius: 1.1rem; border: 1px solid rgba(108,99,255,.18);
-        background: #0F0F1A; padding: 1.6rem;
-        display: flex; flex-direction: column; justify-content: flex-start;
-        position: relative; overflow: hidden;
-        transition: border-color .3s, box-shadow .3s, transform .3s;
-      }
-      .result:hover { border-color: #6C63FF; box-shadow: 0 0 28px rgba(108,99,255,.22); transform: translateY(-4px); }
-      .result:nth-child(2) { border-color: rgba(108,99,255,.35); }
-      .result:nth-child(3):hover { border-color: #00F5C4; box-shadow: 0 0 28px rgba(0,245,196,.2); }
-
-      .result-badge {
-        position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
-        background: linear-gradient(135deg, #6C63FF, #00F5C4);
-        color: #0e0d0c; font-size: .68rem; font-weight: 800;
-        letter-spacing: .1em; text-transform: uppercase;
-        padding: .28rem 1rem; border-radius: 0 0 .6rem .6rem;
-        white-space: nowrap;
-      }
-
-      .result-icon-wrap {
-        width: 56px; height: 56px; border-radius: 14px;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 1.5rem; margin-bottom: 1rem;
-        transition: transform .3s;
-      }
-      .result:hover .result-icon-wrap { transform: scale(1.1); }
-      .result-icon-wrap.violet { background: rgba(108,99,255,.12); color: #6C63FF; }
-      .result-icon-wrap.cyan   { background: rgba(0,245,196,.1);   color: #00F5C4; }
-
-      .result-divider { border: none; border-top: 1px solid rgba(255,255,255,.07); margin: 0 0 1rem; }
-
-      .result h3 { margin: 0 0 .5rem; font-size: 1.15rem; color: #f7f7f4; font-weight: 700; }
-      .result p  { margin: 0; color: #8f8f8d; line-height: 1.75; font-size: .93rem; }
 
       @media (max-width: 960px) {
         .menu { display: none; }
@@ -260,25 +225,9 @@ const pageDescription =
             <p class="lead">No vendemos tecnología. Vendemos horas recuperadas, costos reducidos y ventas que antes se perdían. Así se ven nuestras soluciones en la práctica.</p>
           </div>
           <div class="results-grid">
-            <article class="result">
-              <div class="result-icon-wrap violet"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
-              <hr class="result-divider" />
-              <h3>E-commerce</h3>
-              <p>Agente que atiende pedidos, gestiona devoluciones y responde WhatsApp sin intervención humana — de día y de noche</p>
-            </article>
-            <article class="result">
-              <div class="result-badge">Más popular</div>
-              <div class="result-icon-wrap violet"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
-              <hr class="result-divider" />
-              <h3>Servicios profesionales</h3>
-              <p>Sistema que califica leads, envía cotizaciones y hace seguimiento automático hasta cerrar la venta o agendar la llamada</p>
-            </article>
-            <article class="result">
-              <div class="result-icon-wrap cyan"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
-              <hr class="result-divider" />
-              <h3>Empresas y pymes</h3>
-              <p>Dashboard con datos en tiempo real, alertas automáticas y reportes que antes tomaban horas en preparar</p>
-            </article>
+            <article class="result"><h3>E-commerce</h3><p>Agente que atiende pedidos, gestiona devoluciones y responde WhatsApp sin intervención humana — de día y de noche</p></article>
+            <article class="result"><h3>Servicios profesionales</h3><p>Sistema que califica leads, envía cotizaciones y hace seguimiento automático hasta cerrar la venta o agendar la llamada</p></article>
+            <article class="result"><h3>Empresas y pymes</h3><p>Dashboard con datos en tiempo real, alertas automáticas y reportes que antes tomaban horas en preparar</p></article>
           </div>
         </div>
       </section>
