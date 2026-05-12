@@ -110,11 +110,17 @@ const pageDescription =
       .results-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .95rem; }
       .result {
         min-height: 250px; border-radius: .9rem; border: 1px solid #2f2f2f;
-        background: linear-gradient(180deg, #1a1a1a, #111); padding: 1rem;
-        display: flex; flex-direction: column; justify-content: flex-end;
+        background: linear-gradient(180deg, #1a1a1a, #111); padding: 1.2rem;
+        display: flex; flex-direction: column; justify-content: space-between;
       }
       .result h3 { margin: 0 0 .25rem; }
       .result p { margin: 0; color: #c9c9c5; }
+      .result-icon {
+        width: 46px; height: 46px; border-radius: .6rem;
+        background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.15rem; color: #c8c6c0;
+      }
 
       .philo { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .95rem; }
       .philo-item { border: 1px solid #2d2d2d; border-radius: .8rem; padding: 1rem; background: rgba(255,255,255,.02); }
@@ -250,10 +256,22 @@ const pageDescription =
             <p class="lead">No vendemos tecnología. Vendemos horas recuperadas, costos reducidos y ventas que antes se perdían. Así se ven nuestras soluciones en la práctica.</p>
           </div>
           <div class="results-grid">
-            <article class="result"><h3>E-commerce</h3><p>Agente que atiende pedidos, gestiona devoluciones y responde WhatsApp sin intervención humana — de día y de noche</p></article>
-            <article class="result"><h3>Servicios profesionales</h3><p>Sistema que califica leads, envía cotizaciones y hace seguimiento automático hasta cerrar la venta o agendar la llamada</p></article>
-            <article class="result"><h3>Empresas y pymes</h3><p>Dashboard con datos en tiempo real, alertas automáticas y reportes que antes tomaban horas en preparar</p></article>
-            <article class="result"><h3>Empresas y Soluciones IoT</h3><p>¡Lleve su negocio al siguiente nivel con la transformación digital! Una herramienta clave para transformar su negocio y potenciar su presencia en Internet.</p></article>
+            <article class="result">
+              <div class="result-icon"><i class="fa-solid fa-store"></i></div>
+              <div><h3>E-commerce</h3><p>Agente que atiende pedidos, gestiona devoluciones y responde WhatsApp sin intervención humana — de día y de noche</p></div>
+            </article>
+            <article class="result">
+              <div class="result-icon"><i class="fa-solid fa-handshake"></i></div>
+              <div><h3>Servicios profesionales</h3><p>Sistema que califica leads, envía cotizaciones y hace seguimiento automático hasta cerrar la venta o agendar la llamada</p></div>
+            </article>
+            <article class="result">
+              <div class="result-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <div><h3>Empresas y pymes</h3><p>Dashboard con datos en tiempo real, alertas automáticas y reportes que antes tomaban horas en preparar</p></div>
+            </article>
+            <article class="result">
+              <div class="result-icon"><i class="fa-solid fa-network-wired"></i></div>
+              <div><h3>Empresas y Soluciones IoT</h3><p>¡Lleve su negocio al siguiente nivel con la transformación digital! Una herramienta clave para transformar su negocio y potenciar su presencia en Internet.</p></div>
+            </article>
           </div>
         </div>
       </section>
