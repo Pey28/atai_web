@@ -1,8 +1,8 @@
 ---
 const siteUrl = "https://atai.agency";
-const pageTitle = "ATAI | Agentes de IA que trabajan por tu negocio, 24/7";
+const pageTitle = "Chatbot para Empresas en San Carlos, Costa Rica | ATAI Solutions";
 const pageDescription =
-  "Automatiza operaciones, elimina trabajo manual y escala sin contratar. ATAI diseña agentes de IA, flujos automatizados y software a medida para empresas en Costa Rica y Latinoamérica.";
+  "Chatbot inteligente para empresas en San Carlos, Costa Rica. ATAI implementa agentes de IA que atienden clientes 24/7, generan más ventas y reducen costos operativos. Consulta gratis hoy.";
 ---
 
 <!doctype html>
@@ -14,12 +14,20 @@ const pageDescription =
     <meta name="description" content={pageDescription} />
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     <link rel="canonical" href={siteUrl} />
+    <link rel="preconnect" href="https://assets.mixkit.co" crossorigin />
+
+    <meta name="keywords" content="chatbot san carlos costa rica, chatbot para empresas costa rica, agente de ia costa rica, automatización empresas san carlos, whatsapp bot costa rica, inteligencia artificial negocios costa rica, chatbot ciudad quesada, automatización pymes costa rica" />
+    <meta name="geo.region" content="CR-A" />
+    <meta name="geo.placename" content="San Carlos, Alajuela, Costa Rica" />
+    <meta name="geo.position" content="10.3267;-84.4270" />
+    <meta name="ICBM" content="10.3267, -84.4270" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
+    <meta property="og:locale" content="es_CR" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
@@ -29,10 +37,73 @@ const pageDescription =
 
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "ATAI",
+      "@type": "LocalBusiness",
+      "@id": siteUrl,
+      name: "ATAI Solutions",
+      description: "Chatbot y automatización con inteligencia artificial para empresas en San Carlos, Costa Rica.",
       url: siteUrl,
-      logo: `${siteUrl}/logo.png`
+      logo: `${siteUrl}/logo.png`,
+      image: `${siteUrl}/og-image.jpg`,
+      telephone: "+50660173449",
+      email: "info@ataisolutions.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "San Carlos",
+        addressRegion: "Alajuela",
+        addressCountry: "CR"
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 10.3267,
+        longitude: -84.4270
+      },
+      areaServed: [
+        { "@type": "City", name: "San Carlos" },
+        { "@type": "City", name: "Ciudad Quesada" },
+        { "@type": "Country", name: "Costa Rica" }
+      ],
+      priceRange: "$$",
+      openingHours: "Mo-Fr 08:00-18:00",
+      sameAs: ["https://wa.me/50660173449"]
+    })}></script>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "¿Qué es un chatbot para empresas en San Carlos, Costa Rica?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un chatbot es un agente de inteligencia artificial que atiende a tus clientes automáticamente por WhatsApp, web o redes sociales — 24 horas al día, 7 días a la semana. ATAI implementa chatbots a medida para negocios en San Carlos y toda Costa Rica."
+          }
+        },
+        {
+          "@type": "Question",
+          name: "¿Cuánto cuesta un chatbot en Costa Rica?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "El costo depende de la complejidad de la solución. ATAI ofrece una consulta gratuita para diagnosticar tu caso y presentarte una propuesta sin compromiso. Contáctanos por WhatsApp al +506 6017-3449."
+          }
+        },
+        {
+          "@type": "Question",
+          name: "¿Cómo puede un chatbot ayudar a mi negocio en San Carlos?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un chatbot puede responder preguntas frecuentes, agendar citas, calificar leads, procesar pedidos y hacer seguimiento automático de clientes — sin que necesites personal adicional. Empresas en San Carlos ya están ahorrando horas de trabajo manual con nuestras soluciones."
+          }
+        },
+        {
+          "@type": "Question",
+          name: "¿ATAI tiene servicio en San Carlos, Costa Rica?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sí. ATAI Solutions ofrece chatbots, agentes de IA y automatización para empresas en San Carlos, Ciudad Quesada y toda la Zona Norte de Costa Rica. Trabajamos de forma remota y presencial según las necesidades del cliente."
+          }
+        }
+      ]
     })}></script>
 
     <style is:global>
@@ -204,9 +275,17 @@ const pageDescription =
 
     <main id="content">
       <section class="hero">
-        <video id="heroVideo" autoplay muted playsinline aria-hidden="true"></video>
+        <video
+          id="heroVideo"
+          muted
+          playsinline
+          preload="none"
+          poster="https://assets.mixkit.co/videos/242/242-thumb-720-0.jpg"
+          aria-hidden="true"
+        ></video>
         <div class="container hero-content">
           <h1>Tu negocio operando en piloto automático</h1>
+          <p style="margin:.8rem auto 0;max-width:48ch;color:rgba(247,247,244,.82);font-size:1.05rem;text-shadow:0 1px 12px rgba(0,0,0,.7);">Chatbot e inteligencia artificial para empresas en San Carlos, Costa Rica</p>
           <div class="hero-actions">
             <a class="btn dark" href="#demo">Quiero automatizar mi negocio</a>
             <a class="btn ghost" href="#expertise">Ver qué hacemos</a>
@@ -288,6 +367,21 @@ const pageDescription =
         </div>
       </section>
 
+      <section id="faq" class="section">
+        <div class="container">
+          <div class="header-grid">
+            <div><p class="tag">preguntas frecuentes</p><h2>Chatbot para empresas en San Carlos, Costa Rica</h2></div>
+            <p class="lead">Todo lo que necesitás saber antes de automatizar tu negocio en la Zona Norte.</p>
+          </div>
+          <div class="lines">
+            <div class="line"><p><strong>¿Qué es un chatbot y para qué sirve en mi negocio?</strong> Es un agente de IA que atiende a tus clientes automáticamente por WhatsApp, tu sitio web o redes sociales — sin que vos intervengas, las 24 horas del día.</p><span>01</span></div>
+            <div class="line"><p><strong>¿Funciona para negocios en San Carlos o Ciudad Quesada?</strong> Sí. Implementamos soluciones 100% remotas para empresas en toda la Zona Norte de Costa Rica. No importa dónde estés, el chatbot trabaja por vos.</p><span>02</span></div>
+            <div class="line"><p><strong>¿Cuánto tiempo tarda en estar listo?</strong> La mayoría de proyectos están en producción en 2 a 4 semanas. Arrancamos con un diagnóstico gratuito y construimos desde ahí.</p><span>03</span></div>
+            <div class="line"><p><strong>¿Cuánto cuesta implementar un chatbot en Costa Rica?</strong> Depende de tu caso. Te damos una propuesta sin compromiso después de una consulta gratuita de 30 minutos. Escríbenos por WhatsApp al +506 6017-3449.</p><span>04</span></div>
+          </div>
+        </div>
+      </section>
+
       <section id="demo" class="container cta">
         <h2>¿Cuánto te cuesta no automatizar?</h2>
         <a class="btn dark" href="https://wa.me/50660173449" target="_blank" rel="noopener noreferrer">Agendar sesión gratuita de 30 min</a>
@@ -314,28 +408,74 @@ const pageDescription =
     </a>
 
     <footer>
-      <div class="container">© 2025 ATAI · Automatización con Tecnología de Agentes Inteligentes · San José, Costa Rica 🇨🇷 · <a href="mailto:info@ataisolutions.com">info@ataisolutions.com</a> · <a href="https://wa.me/50660173449" target="_blank" rel="noopener noreferrer">+506 6017-3449</a></div>
+      <div class="container">© 2025 ATAI · Chatbot e Inteligencia Artificial para Empresas · San Carlos, Costa Rica 🇨🇷 · <a href="mailto:info@ataisolutions.com">info@ataisolutions.com</a> · <a href="https://wa.me/50660173449" target="_blank" rel="noopener noreferrer">+506 6017-3449</a></div>
     </footer>
 
     <script>
       const heroSources = [
-        "https://assets.mixkit.co/videos/4872/4872-720.mp4",
         "https://assets.mixkit.co/videos/242/242-720.mp4",
         "https://assets.mixkit.co/videos/1732/1732-720.mp4",
+        "https://assets.mixkit.co/videos/4872/4872-720.mp4",
       ];
       const heroVideo = document.getElementById("heroVideo");
       let heroIndex = 0;
+      const prefetched = new Set();
+
+      const prefetchHero = (url) => {
+        if (prefetched.has(url)) return;
+        prefetched.add(url);
+        const link = document.createElement("link");
+        link.rel = "prefetch";
+        link.href = url;
+        document.head.appendChild(link);
+      };
+
       if (heroVideo) {
         const playHeroClip = () => {
           heroVideo.src = heroSources[heroIndex];
           heroVideo.load();
           heroVideo.play().catch(() => {});
         };
+
         heroVideo.addEventListener("ended", () => {
           heroIndex = (heroIndex + 1) % heroSources.length;
+          prefetchHero(heroSources[(heroIndex + 1) % heroSources.length]);
           playHeroClip();
         });
-        playHeroClip();
+
+        heroVideo.addEventListener("playing", () => {
+          prefetchHero(heroSources[(heroIndex + 1) % heroSources.length]);
+        });
+
+        const startHero = () => {
+          heroIndex = 0;
+          prefetchHero(heroSources[1]);
+          playHeroClip();
+        };
+
+        const skipVideo =
+          typeof navigator !== "undefined" &&
+          Boolean(navigator.connection && "saveData" in navigator.connection && navigator.connection.saveData);
+        const reduceMotion =
+          typeof window !== "undefined" &&
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!skipVideo && !reduceMotion) {
+          const deferHeroBoot = () => {
+            const run = () => startHero();
+            if ("requestIdleCallback" in window) {
+              window.requestIdleCallback(run, { timeout: 2200 });
+            } else {
+              setTimeout(run, 400);
+            }
+          };
+          if (document.readyState === "complete") {
+            deferHeroBoot();
+          } else {
+            window.addEventListener("load", deferHeroBoot);
+          }
+        }
       }
 
       const form = document.getElementById("demoForm");
