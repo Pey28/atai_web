@@ -88,7 +88,7 @@ const pageDescription =
           name: "¿Qué es un chatbot para empresas en San Carlos, Costa Rica?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Un chatbot es un agente de inteligencia artificial que atiende a tus clientes automáticamente por WhatsApp, web o redes sociales — 24 horas al día, 7 días a la semana. ATAI implementa chatbots a medida para negocios en San Carlos, Ciudad Quesada y toda Costa Rica."
+            text: "Un chatbot es un agente de inteligencia artificial que atiende a tus clientes automáticamente por WhatsApp, web o redes sociales24 horas al día, 7 días a la semana. ATAI implementa chatbots a medida para negocios en San Carlos, Ciudad Quesada y toda Costa Rica."
           }
         },
         {
@@ -112,7 +112,7 @@ const pageDescription =
           name: "¿Cómo puede un chatbot ayudar a mi negocio en San Carlos?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Un chatbot puede responder preguntas frecuentes, agendar citas, calificar leads, procesar pedidos y hacer seguimiento automático de clientes — sin que necesites personal adicional. Empresas en San Carlos ya están ahorrando horas de trabajo manual con nuestras soluciones."
+            text: "Un chatbot puede responder preguntas frecuentes, agendar citas, calificar leads, procesar pedidos y hacer seguimiento automático de clientessin que necesites personal adicional. Empresas en San Carlos ya están ahorrando horas de trabajo manual con nuestras soluciones."
           }
         },
         {
@@ -139,7 +139,7 @@ const pageDescription =
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "ATAI Solutions — Chatbot, Diseño Web y Software en San Carlos Costa Rica",
+      name: "ATAI SolutionsChatbot, Diseño Web y Software en San Carlos Costa Rica",
       description: "Chatbot, diseño web y software a medida para empresas en San Carlos, Costa Rica.",
       inLanguage: "es-CR"
     })}></script>
@@ -163,9 +163,8 @@ const pageDescription =
 
       .navbar {
         position: sticky; top: 0; z-index: 20;
-        background: rgba(247, 247, 244, 0.97);
-        color: var(--text-primary);
-        border-bottom: 1px solid #dddcd7;
+        background: rgba(14, 13, 12, 0.97);
+        color: #f7f7f4;
         backdrop-filter: blur(10px);
       }
       .nav-inner {
@@ -176,9 +175,11 @@ const pageDescription =
         gap: 1.4rem;
       }
       .logo { font-weight: 800; letter-spacing: .02em; }
-      .menu { display: flex; justify-content: center; gap: 1.2rem; font-size: .94rem; color: #3a3a3a; }
+      .menu { display: flex; justify-content: center; gap: 1.2rem; font-size: .94rem; color: #c8c8c4; }
       .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: .5rem; font-weight: 600; padding: .7rem 1rem; }
       .btn.dark { background: #0e0d0c; color: #f7f7f4; }
+      .navbar .btn.dark { box-shadow: 0 0 18px rgba(204, 68, 255, 0.35), 0 0 36px rgba(0, 204, 204, 0.2); transition: box-shadow .3s; }
+      .navbar .btn.dark:hover { box-shadow: 0 0 26px rgba(204, 68, 255, 0.55), 0 0 52px rgba(0, 204, 204, 0.35); }
       .btn.light { background: #f1f1ed; color: #0f0f0f; border: 1px solid #cbc9c3; }
       .btn.ghost { border: 1px solid var(--line); color: var(--text-alt); background: transparent; }
 
@@ -208,13 +209,16 @@ const pageDescription =
       .lead { margin: 0 auto; color: #b4b4b0; line-height: 1.7; max-width: 54ch; text-align: center; }
       .header-grid .btn { align-self: center; margin-top: .4rem; }
 
-      .lines { border-top: 1px solid #2a2a2a; }
+      .lines { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .9rem; }
+      .lines .line:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: calc(50% - .45rem); margin-inline: auto; width: 100%; }
       .line {
-        display: grid; grid-template-columns: 1fr auto; gap: 1rem;
-        border-bottom: 1px solid #2a2a2a; padding: 1.2rem 0;
+        border: 1px solid #2d2d2d; border-radius: .85rem;
+        padding: 1.5rem 1.6rem; background: rgba(255,255,255,.03);
+        box-shadow: 0 4px 22px rgba(0,0,0,.32);
+        transition: transform .25s, box-shadow .25s, border-color .25s, background .25s;
       }
-      .line p { margin: 0; }
-      .line span { color: #bcbcb8; font-variant-numeric: tabular-nums; }
+      .line:hover { transform: translateY(-5px); box-shadow: 0 10px 36px rgba(0,0,0,.52); border-color: rgba(0,245,196,.22); background: rgba(255,255,255,.055); }
+      .line p { margin: 0; line-height: 1.65; }
 
       .results-grid {
         display: grid;
@@ -227,13 +231,16 @@ const pageDescription =
         margin: 0;
         padding: 0;
         border: none;
-        border-radius: 0;
+        border-radius: .85rem;
         background-color: #1a1a1a;
         background-image: var(--result-img);
         background-size: cover;
         background-position: center;
         overflow: hidden;
+        box-shadow: 0 6px 28px rgba(0,0,0,.45);
+        transition: transform .3s, box-shadow .3s;
       }
+      .result:hover { transform: translateY(-6px) scale(1.012); box-shadow: 0 16px 48px rgba(0,0,0,.65); }
       .result::after {
         content: "";
         position: absolute;
@@ -333,7 +340,8 @@ const pageDescription =
       }
 
       .philo { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .95rem; }
-      .philo-item { border: 1px solid #2d2d2d; border-radius: .8rem; padding: 1rem; background: rgba(255,255,255,.02); }
+      .philo-item { border: 1px solid #2d2d2d; border-radius: .8rem; padding: 1rem; background: rgba(255,255,255,.02); box-shadow: 0 4px 24px rgba(0,0,0,.35); transition: transform .25s, box-shadow .25s, border-color .25s; }
+      .philo-item:hover { transform: translateY(-5px); box-shadow: 0 10px 36px rgba(0,0,0,.55); border-color: rgba(0,245,196,.25); }
       .philo-item h3 { margin: 0 0 .4rem; }
       .philo-item p { margin: 0; color: #bebebb; line-height: 1.68; }
 
@@ -351,7 +359,10 @@ const pageDescription =
       .chip {
         border: 1px solid #2f2f2f; border-radius: 999px; padding: .5rem .82rem;
         color: #d9dfeb; background: rgba(255,255,255,.03);
+        box-shadow: 0 2px 10px rgba(0,0,0,.25); transition: transform .2s, box-shadow .2s, border-color .2s;
+        cursor: default;
       }
+      .chip:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.4); border-color: rgba(0,245,196,.3); }
 
       .form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; margin-top: 1.6rem; }
       input { font: inherit; border-radius: .65rem; border: 1px solid #373737; padding: .78rem; background: #090d14; color: #fff; }
@@ -455,7 +466,7 @@ const pageDescription =
 
       @media (max-width: 960px) {
         .menu { display: none; }
-        .header-grid, .results-grid, .philo, .form { grid-template-columns: 1fr; }
+        .header-grid, .results-grid, .philo, .form, .lines { grid-template-columns: 1fr; }
         .hero { min-height: 72vh; }
         .stack-split { grid-template-columns: 1fr; }
         .stack-copy h2 { max-width: none; }
@@ -470,7 +481,7 @@ const pageDescription =
     <header class="navbar">
       <div class="container nav-inner">
         <a class="logo" href="#" aria-label="ATAI Solutions">
-          <img src="/favicon.svg" width="48" height="48" alt="ATAI Solutions" style="display:block;border-radius:.5rem;" />
+          <img src="/favicon.svg" alt="ATAI Solutions" style="display:block;height:52px;width:auto;" />
         </a>
         <nav class="menu" aria-label="Navegación principal">
           <a href="#expertise">Servicios</a>
@@ -502,7 +513,6 @@ const pageDescription =
           </div>
         </div>
         <div class="logo-strip">
-          <span class="pill">OpenAI</span><span class="pill">Anthropic</span><span class="pill">LangChain</span><span class="pill">n8n</span><span class="pill">Make</span><span class="pill">AWS</span>
         </div>
       </section>
 
@@ -510,13 +520,13 @@ const pageDescription =
         <div class="container">
           <div class="header-grid">
             <div><p class="tag">nuestros servicios</p><h2>Chatbot, diseño web y software a medida en San Carlos, Costa Rica</h2></div>
-            <div><p class="lead">Implementamos chatbots inteligentes, diseñamos sitios web profesionales y desarrollamos software a medida para empresas en San Carlos y toda Costa Rica — todo integrado para que tu negocio crezca sin contratar más personal.</p><a href="#demo" class="btn dark" style="margin-top:1rem;">Quiero una consulta gratis</a></div>
+            <div><p class="lead">Implementamos chatbots inteligentes, diseñamos sitios web profesionales y desarrollamos software a medida para empresas en San Carlos y toda Costa Ricatodo integrado para que tu negocio crezca sin contratar más personal.</p><a href="#demo" class="btn dark" style="margin-top:1rem;">Quiero una consulta gratis</a></div>
           </div>
           <div class="lines">
-            <div class="line"><p><strong>Chatbot para empresas en San Carlos:</strong> Agentes de IA que atienden clientes por WhatsApp y web, gestionan tareas y responden 24/7 sin que tengas que intervenir</p><span>01</span></div>
-            <div class="line"><p><strong>Automatización de procesos:</strong> Conectamos tus herramientas y eliminamos el trabajo repetitivo con flujos inteligentes — para negocios en Costa Rica que quieren operar de manera más eficiente</p><span>02</span></div>
-            <div class="line"><p><strong>Diseño web profesional en San Carlos:</strong> Sitios web modernos, rápidos y optimizados para Google — construidos para convertir visitas en clientes reales</p><span>03</span></div>
-            <div class="line"><p><strong>Software a medida en Costa Rica:</strong> CRMs, dashboards, APIs y sistemas internos desarrollados exactamente como tu negocio los necesita, sin soluciones genéricas</p><span>04</span></div>
+            <div class="line"><p><strong>Chatbot para empresas en San Carlos:</strong> Agentes de IA que atienden clientes por WhatsApp y web, gestionan tareas y responden 24/7 sin que tengas que intervenir</p></div>
+            <div class="line"><p><strong>Automatización de procesos:</strong> Conectamos tus herramientas y eliminamos el trabajo repetitivo con flujos inteligentes para negocios en Costa Rica que quieren operar de manera más eficiente</p></div>
+            <div class="line"><p><strong>Diseño web profesional en San Carlos:</strong> Sitios web modernos, rápidos y optimizados para Google, construidos para convertir visitas en clientes reales</p></div>
+            <div class="line"><p><strong>Software a medida en Costa Rica:</strong> CRMs, dashboards, APIs y sistemas internos desarrollados exactamente como tu negocio los necesita, sin soluciones genéricas</p></div>
           </div>
         </div>
       </section>
@@ -527,7 +537,7 @@ const pageDescription =
             <p class="tag">cómo encaja todo</p>
             <h2>Los agentes necesitan una base para multiplicar su impacto</h2>
             <p class="lead">
-              Para tu negocio, la ventaja no es solo “tener IA”: es conectarla con tus datos, tus canales y tus procesos reales — chatbot, web y software trabajando en conjunto.
+              Para tu negocio, la ventaja no es solo “tener IA”: es conectarla con tus datos, tus canales y tus procesos realeschatbot, web y software trabajando en conjunto.
             </p>
             <a class="btn dark" href="#demo">Agendar diagnóstico gratis</a>
             <ol class="stack-steps">
@@ -542,7 +552,7 @@ const pageDescription =
                 <span class="n">02</span>
                 <div>
                   <strong>Aprenden del contexto</strong>
-                  <p>Integran CRM, WhatsApp, hojas de cálculo, APIs y lo que ya usás — sin reemplazar todo de un día para otro.</p>
+                  <p>Integran CRM, WhatsApp, hojas de cálculo, APIs y lo que ya usássin reemplazar todo de un día para otro.</p>
                 </div>
               </li>
             </ol>
@@ -616,10 +626,10 @@ const pageDescription =
             <p class="lead">Sin burocracia ni proyectos eternos. Arrancamos rápido, medimos desde el día uno y ajustamos hasta que los números hablen solos.</p>
           </div>
           <div class="lines">
-            <div class="line"><p><strong>Diagnóstico:</strong> Analizamos tu operación e identificamos los puntos donde la automatización genera mayor impacto y retorno</p><span>01</span></div>
-            <div class="line"><p><strong>Diseño:</strong> Construimos la arquitectura de la solución: qué herramientas, qué agentes, qué flujos — antes de escribir una sola línea de código</p><span>02</span></div>
-            <div class="line"><p><strong>Construcción:</strong> Desarrollamos e integramos con lo que ya usas. Sin migrar todo, sin interrumpir tu operación actual</p><span>03</span></div>
-            <div class="line"><p><strong>Escala:</strong> Monitoreamos, optimizamos y expandimos. Tu solución mejora con el tiempo sin que tengas que hacer nada</p><span>04</span></div>
+            <div class="line"><p><strong>Diagnóstico:</strong> Analizamos tu operación e identificamos los puntos donde la automatización genera mayor impacto y retorno</p></div>
+            <div class="line"><p><strong>Diseño:</strong> Construimos la arquitectura de la solución: qué herramientas, qué agentes, qué flujos antes de escribir una sola línea de código</p></div>
+            <div class="line"><p><strong>Construcción:</strong> Desarrollamos e integramos con lo que ya usas. Sin migrar todo, sin interrumpir tu operación actual</p></div>
+            <div class="line"><p><strong>Escala:</strong> Monitoreamos, optimizamos y expandimos. Tu solución mejora con el tiempo sin que tengas que hacer nada</p></div>
           </div>
         </div>
       </section>
@@ -642,13 +652,13 @@ const pageDescription =
               >
                 <div class="result-head">
                 <div class="result-brand" aria-hidden="true">
-                  <img src="/favicon.svg" width="40" height="40" alt="ATAI" style="border-radius:.4rem;" />
+                  <img src="/logo-card.svg" alt="ATAI" style="height:44px;width:auto;" />
                 </div>
                 <div class="result-icon-fa" aria-hidden="true"><i class="fa-solid fa-store"></i></div>
                 </div>
                 <div class="result-body">
                   <h3 class="result-title">E-commerce</h3>
-                  <p>Agente que atiende pedidos, gestiona devoluciones y responde WhatsApp sin intervención humana — de día y de noche</p>
+                  <p>Agente que atiende pedidos, gestiona devoluciones y responde WhatsApp sin intervención humanade día y de noche</p>
                   <span class="result-more">Saber más ↗</span>
                 </div>
               </a>
@@ -664,7 +674,7 @@ const pageDescription =
               >
                 <div class="result-head">
                 <div class="result-brand" aria-hidden="true">
-                  <img src="/favicon.svg" width="40" height="40" alt="ATAI" style="border-radius:.4rem;" />
+                  <img src="/logo-card.svg" alt="ATAI" style="height:44px;width:auto;" />
                 </div>
                 <div class="result-icon-fa" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
                 </div>
@@ -685,7 +695,7 @@ const pageDescription =
                 aria-label="Empresas y pymes: dashboards y reportes. Saber más."
               >
                 <div class="result-head">
-                <div class="result-brand" aria-hidden="true"><img src="/favicon.svg" width="40" height="40" alt="ATAI" style="border-radius:.4rem;" /></div>
+                <div class="result-brand" aria-hidden="true"><img src="/logo-card.svg" alt="ATAI" style="height:44px;width:auto;" /></div>
                 <div class="result-icon-fa" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></div>
                 </div>
                 <div class="result-body">
@@ -705,7 +715,7 @@ const pageDescription =
                 aria-label="Empresas y soluciones IoT. Saber más."
               >
                 <div class="result-head">
-                <div class="result-brand" aria-hidden="true"><img src="/favicon.svg" width="40" height="40" alt="ATAI" style="border-radius:.4rem;" /></div>
+                <div class="result-brand" aria-hidden="true"><img src="/logo-card.svg" alt="ATAI" style="height:44px;width:auto;" /></div>
                 <div class="result-icon-fa" aria-hidden="true"><i class="fa-solid fa-network-wired"></i></div>
                 </div>
                 <div class="result-body">
@@ -740,11 +750,11 @@ const pageDescription =
             <p class="lead">Todo lo que necesitás saber sobre nuestros servicios para empresas en la Zona Norte de Costa Rica.</p>
           </div>
           <div class="lines">
-            <div class="line"><p><strong>¿Qué es un chatbot para empresas en San Carlos?</strong> Es un agente de IA que atiende a tus clientes automáticamente por WhatsApp o tu sitio web — sin que intervengas, las 24 horas del día. Ideal para negocios en San Carlos, Ciudad Quesada y toda la Zona Norte.</p><span>01</span></div>
-            <div class="line"><p><strong>¿Hacen diseño web profesional en San Carlos, Costa Rica?</strong> Sí. Creamos páginas web modernas, rápidas y optimizadas para Google. Tu sitio web queda conectado con el chatbot y los sistemas de tu negocio desde el primer día.</p><span>02</span></div>
-            <div class="line"><p><strong>¿Qué es software a medida y por qué lo necesito?</strong> Es un sistema diseñado para tu negocio específico: CRM, dashboard, app de gestión, API. Si los programas genéricos no te sirven, desarrollamos exactamente lo que necesitás — en Costa Rica, a precio justo.</p><span>03</span></div>
-            <div class="line"><p><strong>¿Cuánto tiempo tarda un chatbot o sitio web en estar listo?</strong> La mayoría de proyectos están en producción en 2 a 4 semanas. Arrancamos con un diagnóstico gratuito y construimos desde ahí sin burocracia.</p><span>04</span></div>
-            <div class="line"><p><strong>¿Cuánto cuesta el diseño web o un chatbot en Costa Rica?</strong> Depende de tu proyecto. Te damos una propuesta sin compromiso después de una consulta gratuita. Escríbenos por WhatsApp al +506 6017-3449.</p><span>05</span></div>
+            <div class="line"><p><strong>¿Qué es un chatbot para empresas en San Carlos?</strong> Es un agente de IA que atiende a tus clientes automáticamente por WhatsApp o tu sitio websin que intervengas, las 24 horas del día. Ideal para negocios en San Carlos, Ciudad Quesada y toda la Zona Norte.</p></div>
+            <div class="line"><p><strong>¿Hacen diseño web profesional en San Carlos, Costa Rica?</strong> Sí. Creamos páginas web modernas, rápidas y optimizadas para Google. Tu sitio web queda conectado con el chatbot y los sistemas de tu negocio desde el primer día.</p></div>
+            <div class="line"><p><strong>¿Qué es software a medida y por qué lo necesito?</strong> Es un sistema diseñado para tu negocio específico: CRM, dashboard, app de gestión, API. Si los programas genéricos no te sirven, desarrollamos exactamente lo que necesitásen Costa Rica, a precio justo.</p></div>
+            <div class="line"><p><strong>¿Cuánto tiempo tarda un chatbot o sitio web en estar listo?</strong> La mayoría de proyectos están en producción en 2 a 4 semanas. Arrancamos con un diagnóstico gratuito y construimos desde ahí sin burocracia.</p></div>
+            <div class="line"><p><strong>¿Cuánto cuesta el diseño web o un chatbot en Costa Rica?</strong> Depende de tu proyecto. Te damos una propuesta sin compromiso después de una consulta gratuita. Escríbenos por WhatsApp al +506 6017-3449.</p></div>
           </div>
         </div>
       </section>
@@ -757,9 +767,6 @@ const pageDescription =
       <section class="section">
         <div class="container">
           <h2>Trabajamos con todo tipo de negocio</h2>
-          <div class="chips">
-            <span class="chip">San Carlos</span><span class="chip">Ciudad Quesada</span><span class="chip">Zona Norte CR</span><span class="chip">E-commerce</span><span class="chip">Agencias</span><span class="chip">Retail</span><span class="chip">Manufactura</span><span class="chip">Atención al Cliente</span><span class="chip">Ventas B2B</span><span class="chip">Operaciones</span><span class="chip">Salud</span><span class="chip">Bienes raíces</span>
-          </div>
           <form id="demoForm" class="form" aria-label="Formulario de contacto">
             <input type="text" name="name" placeholder="Tu nombre" required />
             <input type="email" name="email" placeholder="Tu correo" required />
