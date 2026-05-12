@@ -464,6 +464,9 @@ const pageDescription =
       }
       .stack-svg { display: block; width: 100%; height: auto; max-height: min(420px, 52vh); }
 
+      .sl { opacity: 0; transform: perspective(700px) rotateX(22deg) translateY(50px); transform-origin: center bottom; transition: opacity .9s ease, transform .9s cubic-bezier(.25,.46,.45,.94); }
+      .sl.sl-visible { opacity: 1; transform: perspective(700px) rotateX(0deg) translateY(0); }
+
       @media (max-width: 960px) {
         .menu { display: none; }
         .header-grid, .results-grid, .philo, .form, .lines { grid-template-columns: 1fr; }
@@ -557,7 +560,7 @@ const pageDescription =
               </li>
             </ol>
           </div>
-          <div class="stack-visual">
+          <div class="stack-visual" id="stackVisual">
             <svg class="stack-svg" viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <defs>
                 <marker id="stack-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -565,55 +568,61 @@ const pageDescription =
                 </marker>
               </defs>
 
-              <g stroke="#2a2825" stroke-width="1.15" stroke-linejoin="round">
-                <path fill="rgba(14,13,12,0.035)" d="M 96 28 L 424 72 L 404 138 L 76 94 Z" />
-                <path fill="rgba(14,13,12,0.055)" d="M 64 118 L 456 178 L 428 262 L 36 202 Z" />
-                <path fill="rgba(14,13,12,0.08)" d="M 32 218 L 488 288 L 452 382 L 12 312 Z" />
+              <!-- Capa 1: INTELIGENCIA -->
+              <g class="sl sl-1">
+                <path fill="rgba(14,13,12,0.035)" stroke="#2a2825" stroke-width="1.15" stroke-linejoin="round" d="M 96 28 L 424 72 L 404 138 L 76 94 Z" />
+                <text x="260" y="78" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" letter-spacing="0.16em" fill="#3a3834" font-weight="700">INTELIGENCIA</text>
+                <rect x="228" y="44" width="64" height="22" rx="5" fill="#0e0d0c" />
+                <text x="260" y="59" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="800" fill="#f7f7f4" letter-spacing="0.12em">ATAI</text>
+                <g fill="none" stroke="#2a2825" stroke-width="1">
+                  <path d="M 130 100 v 22 M 140 100 v 18 M 150 100 v 26 M 160 100 v 14" />
+                  <path d="M 128 122 h 36" />
+                </g>
+                <g fill="none" stroke="#2a2825" stroke-width="1">
+                  <ellipse cx="350" cy="108" rx="22" ry="10" />
+                  <path d="M 328 108 h 44" />
+                </g>
+                <circle cx="200" cy="104" r="5" stroke="#2a2825" fill="none" />
+                <path d="M 197 104 h 6" stroke="#2a2825" />
               </g>
 
-              <text x="260" y="78" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" letter-spacing="0.16em" fill="#3a3834" font-weight="700">INTELIGENCIA</text>
-              <text x="260" y="178" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" letter-spacing="0.16em" fill="#3a3834" font-weight="700">INTEGRACIÓN</text>
-              <text x="260" y="288" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" letter-spacing="0.16em" fill="#3a3834" font-weight="700">EJECUCIÓN</text>
-
-              <rect x="228" y="44" width="64" height="22" rx="5" fill="#0e0d0c" />
-              <text x="260" y="59" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="800" fill="#f7f7f4" letter-spacing="0.12em">ATAI</text>
-
-              <g fill="none" stroke="#2a2825" stroke-width="1">
-                <path d="M 130 100 v 22 M 140 100 v 18 M 150 100 v 26 M 160 100 v 14" />
-                <path d="M 128 122 h 36" />
+              <!-- Capa 2: INTEGRACIÓN -->
+              <g class="sl sl-2">
+                <path fill="rgba(14,13,12,0.055)" stroke="#2a2825" stroke-width="1.15" stroke-linejoin="round" d="M 64 118 L 456 178 L 428 262 L 36 202 Z" />
+                <text x="260" y="178" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" letter-spacing="0.16em" fill="#3a3834" font-weight="700">INTEGRACIÓN</text>
+                <rect x="118" y="198" width="52" height="34" rx="4" fill="none" stroke="#2a2825" />
+                <path d="M 124 206 h 40 M 124 212 h 28 M 124 218 h 34" stroke="#2a2825" stroke-width="0.9" />
+                <circle cx="250" cy="215" r="14" fill="none" stroke="#2a2825" />
+                <path d="M 244 215 h 12 M 250 209 v 12" stroke="#2a2825" />
+                <rect x="310" y="198" width="70" height="34" rx="4" fill="none" stroke="#2a2825" />
+                <path d="M 318 208 h 54 M 318 216 h 40 M 318 224 h 48" stroke="#2a2825" stroke-width="0.9" />
               </g>
-              <g fill="none" stroke="#2a2825" stroke-width="1">
-                <ellipse cx="350" cy="108" rx="22" ry="10" />
-                <path d="M 328 108 h 44" />
+
+              <!-- Capa 3: EJECUCIÓN -->
+              <g class="sl sl-3">
+                <path fill="rgba(14,13,12,0.08)" stroke="#2a2825" stroke-width="1.15" stroke-linejoin="round" d="M 32 218 L 488 288 L 452 382 L 12 312 Z" />
+                <text x="260" y="288" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" letter-spacing="0.16em" fill="#3a3834" font-weight="700">EJECUCIÓN</text>
+                <rect x="168" y="318" width="56" height="38" rx="6" fill="none" stroke="#2a2825" />
+                <path d="M 178 328 h 36 M 178 336 h 24 M 178 344 h 30" stroke="#2a2825" stroke-width="0.85" />
+                <path d="M 248 328 h 52 a 8 8 0 0 1 8 8 v 16 a 8 8 0 0 1 -8 8 h -52 a 8 8 0 0 1 -8 -8 v -16 a 8 8 0 0 1 8 -8" fill="none" stroke="#2a2825" />
+                <circle cx="274" cy="344" r="5" fill="none" stroke="#2a2825" />
+                <path d="M 271 344 h 6 M 274 341 v 6" stroke="#2a2825" />
+                <rect x="330" y="322" width="48" height="32" rx="3" fill="none" stroke="#2a2825" />
+                <path d="M 336 330 h 36 M 336 338 h 22" stroke="#2a2825" stroke-width="0.85" />
+                <text x="196" y="378" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" fill="#5c5850">Web · CRM</text>
+                <text x="276" y="378" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" fill="#5c5850">WhatsApp</text>
+                <text x="354" y="378" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" fill="#5c5850">Automatización</text>
               </g>
-              <circle cx="200" cy="104" r="5" stroke="#2a2825" fill="none" />
-              <path d="M 197 104 h 6" stroke="#2a2825" />
 
-              <rect x="118" y="198" width="52" height="34" rx="4" fill="none" stroke="#2a2825" />
-              <path d="M 124 206 h 40 M 124 212 h 28 M 124 218 h 34" stroke="#2a2825" stroke-width="0.9" />
-              <circle cx="250" cy="215" r="14" fill="none" stroke="#2a2825" />
-              <path d="M 244 215 h 12 M 250 209 v 12" stroke="#2a2825" />
-              <rect x="310" y="198" width="70" height="34" rx="4" fill="none" stroke="#2a2825" />
-              <path d="M 318 208 h 54 M 318 216 h 40 M 318 224 h 48" stroke="#2a2825" stroke-width="0.9" />
-
-              <rect x="168" y="318" width="56" height="38" rx="6" fill="none" stroke="#2a2825" />
-              <path d="M 178 328 h 36 M 178 336 h 24 M 178 344 h 30" stroke="#2a2825" stroke-width="0.85" />
-              <path d="M 248 328 h 52 a 8 8 0 0 1 8 8 v 16 a 8 8 0 0 1 -8 8 h -52 a 8 8 0 0 1 -8 -8 v -16 a 8 8 0 0 1 8 -8" fill="none" stroke="#2a2825" />
-              <circle cx="274" cy="344" r="5" fill="none" stroke="#2a2825" />
-              <path d="M 271 344 h 6 M 274 341 v 6" stroke="#2a2825" />
-              <rect x="330" y="322" width="48" height="32" rx="3" fill="none" stroke="#2a2825" />
-              <path d="M 336 330 h 36 M 336 338 h 22" stroke="#2a2825" stroke-width="0.85" />
-
-              <text x="196" y="378" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" fill="#5c5850">Web · CRM</text>
-              <text x="276" y="378" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" fill="#5c5850">WhatsApp</text>
-              <text x="354" y="378" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" fill="#5c5850">Automatización</text>
-
-              <path d="M 120 340 L 92 260" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
-              <path d="M 400 340 L 428 260" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
-              <path d="M 200 150 L 180 200" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
-              <path d="M 320 150 L 340 200" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
-              <path d="M 260 118 L 260 168" stroke="#6e6a62" stroke-width="1" stroke-dasharray="3 5" marker-end="url(#stack-arrow)" />
-              <path d="M 260 248 L 260 288" stroke="#6e6a62" stroke-width="1" stroke-dasharray="3 5" marker-end="url(#stack-arrow)" />
+              <!-- Conectores -->
+              <g class="sl sl-4">
+                <path d="M 120 340 L 92 260" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
+                <path d="M 400 340 L 428 260" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
+                <path d="M 200 150 L 180 200" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
+                <path d="M 320 150 L 340 200" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
+                <path d="M 260 118 L 260 168" stroke="#6e6a62" stroke-width="1" stroke-dasharray="3 5" marker-end="url(#stack-arrow)" />
+                <path d="M 260 248 L 260 288" stroke="#6e6a62" stroke-width="1" stroke-dasharray="3 5" marker-end="url(#stack-arrow)" />
+              </g>
             </svg>
           </div>
         </div>
@@ -861,6 +870,22 @@ const pageDescription =
         });
       }, { threshold: 0.12 });
       document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+      const stackVisual = document.getElementById("stackVisual");
+      if (stackVisual) {
+        const layers = stackVisual.querySelectorAll(".sl");
+        const triggerPoints = [0.05, 0.3, 0.55, 0.78];
+        const checkStack = () => {
+          const rect = stackVisual.getBoundingClientRect();
+          const vh = window.innerHeight;
+          const progress = 1 - (rect.bottom / (vh + rect.height));
+          layers.forEach((el, i) => {
+            if (progress >= triggerPoints[i]) el.classList.add("sl-visible");
+          });
+        };
+        window.addEventListener("scroll", checkStack, { passive: true });
+        checkStack();
+      }
 
       const form = document.getElementById("demoForm");
       const msg = document.getElementById("msg");
