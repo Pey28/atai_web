@@ -15,6 +15,7 @@ const pageDescription =
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     <link rel="canonical" href={siteUrl} />
     <link rel="preconnect" href="https://assets.mixkit.co" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 
     <meta name="keywords" content="chatbot san carlos costa rica, diseño web san carlos costa rica, desarrollo de software costa rica, chatbot para empresas costa rica, agente de ia costa rica, automatización empresas san carlos, diseño web ciudad quesada, software a medida costa rica, whatsapp bot costa rica, inteligencia artificial negocios costa rica, paginas web profesionales costa rica" />
     <meta name="geo.region" content="CR-A" />
@@ -188,19 +189,123 @@ const pageDescription =
       .line p { margin: 0; }
       .line span { color: #bcbcb8; font-variant-numeric: tabular-nums; }
 
-      .results-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .95rem; }
-      .result {
-        min-height: 250px; border-radius: .9rem; border: 1px solid #2f2f2f;
-        background: linear-gradient(180deg, #1a1a1a, #111); padding: 1.2rem;
-        display: flex; flex-direction: column; justify-content: space-between;
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3px;
+        border-radius: 0.65rem;
+        overflow: hidden;
+        background: #252525;
       }
-      .result h3 { margin: 0 0 .25rem; }
-      .result p { margin: 0; color: #c9c9c5; }
-      .result-icon {
-        width: 46px; height: 46px; border-radius: .6rem;
-        background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09);
-        display: flex; align-items: center; justify-content: center;
-        font-size: 1.15rem; color: #c8c6c0;
+      .result {
+        position: relative;
+        min-height: clamp(260px, 42vw, 340px);
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background-color: #1a1a1a;
+        background-image: var(--result-img);
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+      }
+      .result::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(14, 13, 12, 0.1) 0%, rgba(14, 13, 12, 0.45) 45%, rgba(14, 13, 12, 0.82) 100%);
+        pointer-events: none;
+      }
+      .result-hit {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        min-height: clamp(260px, 42vw, 340px);
+        height: 100%;
+        padding: 1.1rem 1.2rem 1.35rem;
+        color: #f7f7f4;
+        text-align: left;
+        transition: color 0.2s;
+      }
+      .result-hit:hover { color: #fff; }
+      .result-hit:focus-visible { outline: 2px solid #00f5c4; outline-offset: 3px; }
+      .result-head {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 0.65rem;
+        width: 100%;
+      }
+      .result-brand {
+        min-width: 0;
+        filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.4));
+      }
+      .result-brand svg { display: block; height: auto; width: min(118px, 34vw); }
+      .result-icon-fa {
+        flex-shrink: 0;
+        width: 42px;
+        height: 42px;
+        border-radius: 0.55rem;
+        background: rgba(14, 13, 12, 0.45);
+        border: 1px solid rgba(247, 247, 244, 0.22);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.05rem;
+        color: rgba(247, 247, 244, 0.95);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+      }
+      .result-hit:hover .result-icon-fa {
+        border-color: rgba(0, 245, 196, 0.4);
+        color: #fff;
+      }
+      .result-body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .result-title {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-weight: 500;
+        font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+        line-height: 1.2;
+        max-width: 22ch;
+        text-shadow: 0 2px 28px rgba(0, 0, 0, 0.55);
+      }
+      .result-hit p {
+        margin: 0.55rem 0 0;
+        font-size: 0.86rem;
+        line-height: 1.55;
+        color: rgba(247, 247, 244, 0.9);
+        max-width: 48ch;
+        text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
+      }
+      .result-more {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin-top: 1rem;
+        padding: 0.45rem 0.85rem;
+        border: 1px solid rgba(247, 247, 244, 0.45);
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: rgba(247, 247, 244, 0.95);
+        background: rgba(14, 13, 12, 0.2);
+        backdrop-filter: blur(6px);
+        transition: border-color 0.2s, background 0.2s;
+      }
+      .result-hit:hover .result-more {
+        border-color: rgba(247, 247, 244, 0.75);
+        background: rgba(247, 247, 244, 0.12);
       }
 
       .philo { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .95rem; }
@@ -234,11 +339,74 @@ const pageDescription =
       .wa-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
       .wa-btn svg { width: 30px; height: 30px; fill: #fff; }
 
+      .stack-band {
+        background: linear-gradient(165deg, #f4f1ea 0%, #e6e2d8 48%, #ded9cf 100%);
+        color: #0e0d0c;
+        border-top: 1px solid #cfc9be;
+        border-bottom: 1px solid #cfc9be;
+        padding: clamp(3.5rem, 8vw, 5.5rem) 0;
+      }
+      .stack-split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+        gap: clamp(1.5rem, 4vw, 3.5rem);
+        align-items: center;
+        text-align: left;
+      }
+      .stack-copy .tag { color: #5a5852; }
+      .stack-copy h2 {
+        margin: 0 0 1rem;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-weight: 600;
+        font-size: clamp(1.75rem, 2.8vw, 2.65rem);
+        line-height: 1.12;
+        max-width: 20ch;
+        text-align: left;
+        color: #0e0d0c;
+      }
+      .stack-copy .lead {
+        margin: 0;
+        max-width: 42ch;
+        text-align: left;
+        color: #3a3834;
+        font-size: 1.02rem;
+      }
+      .stack-copy .btn { margin-top: 1.35rem; align-self: flex-start; }
+      .stack-steps { margin: 2rem 0 0; padding: 0; list-style: none; }
+      .stack-steps li {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.85rem 1rem;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(14, 13, 12, 0.1);
+      }
+      .stack-steps li:first-child { border-top: 0; padding-top: 0; }
+      .stack-steps .n {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: #7a766c;
+        padding-top: 0.15rem;
+      }
+      .stack-steps strong { display: block; font-size: 0.98rem; margin-bottom: 0.25rem; }
+      .stack-steps p { margin: 0; font-size: 0.92rem; line-height: 1.55; color: #4a4840; }
+      .stack-visual {
+        position: relative;
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(14, 13, 12, 0.08);
+        box-shadow: 0 18px 48px rgba(14, 13, 12, 0.06);
+        padding: 0.6rem;
+      }
+      .stack-svg { display: block; width: 100%; height: auto; max-height: min(420px, 52vh); }
 
       @media (max-width: 960px) {
         .menu { display: none; }
         .header-grid, .results-grid, .philo, .form { grid-template-columns: 1fr; }
         .hero { min-height: 72vh; }
+        .stack-split { grid-template-columns: 1fr; }
+        .stack-copy h2 { max-width: none; }
+        .stack-visual { order: -1; }
       }
     </style>
   </head>
@@ -275,6 +443,7 @@ const pageDescription =
         </a>
         <nav class="menu" aria-label="Navegación principal">
           <a href="#expertise">Servicios</a>
+          <a href="#arquitectura">Arquitectura</a>
           <a href="#platform">Cómo funciona</a>
           <a href="#results">Casos de uso</a>
           <a href="#philosophy">Por qué ATAI</a>
@@ -321,6 +490,94 @@ const pageDescription =
         </div>
       </section>
 
+      <section id="arquitectura" class="stack-band">
+        <div class="container stack-split">
+          <div class="stack-copy">
+            <p class="tag">cómo encaja todo</p>
+            <h2>Los agentes necesitan una base para multiplicar su impacto</h2>
+            <p class="lead">
+              Para tu negocio, la ventaja no es solo “tener IA”: es conectarla con tus datos, tus canales y tus procesos reales — chatbot, web y software trabajando en conjunto.
+            </p>
+            <a class="btn dark" href="#demo">Agendar diagnóstico gratis</a>
+            <ol class="stack-steps">
+              <li>
+                <span class="n">01</span>
+                <div>
+                  <strong>Actúan y se miden</strong>
+                  <p>Los agentes ejecutan tareas concretas (respuestas, cotizaciones, seguimiento) y se evalúan con métricas que vos podés ver en tableros.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">02</span>
+                <div>
+                  <strong>Aprenden del contexto</strong>
+                  <p>Integran CRM, WhatsApp, hojas de cálculo, APIs y lo que ya usás — sin reemplazar todo de un día para otro.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="stack-visual">
+            <svg class="stack-svg" viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <marker id="stack-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                  <path d="M0,0 L6,3 L0,6 Z" fill="#5c5850" />
+                </marker>
+              </defs>
+
+              <g stroke="#2a2825" stroke-width="1.15" stroke-linejoin="round">
+                <path fill="rgba(14,13,12,0.035)" d="M 96 28 L 424 72 L 404 138 L 76 94 Z" />
+                <path fill="rgba(14,13,12,0.055)" d="M 64 118 L 456 178 L 428 262 L 36 202 Z" />
+                <path fill="rgba(14,13,12,0.08)" d="M 32 218 L 488 288 L 452 382 L 12 312 Z" />
+              </g>
+
+              <text x="260" y="78" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" letter-spacing="0.16em" fill="#3a3834" font-weight="700">INTELIGENCIA</text>
+              <text x="260" y="178" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" letter-spacing="0.16em" fill="#3a3834" font-weight="700">INTEGRACIÓN</text>
+              <text x="260" y="288" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" letter-spacing="0.16em" fill="#3a3834" font-weight="700">EJECUCIÓN</text>
+
+              <rect x="228" y="44" width="64" height="22" rx="5" fill="#0e0d0c" />
+              <text x="260" y="59" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="800" fill="#f7f7f4" letter-spacing="0.12em">ATAI</text>
+
+              <g fill="none" stroke="#2a2825" stroke-width="1">
+                <path d="M 130 100 v 22 M 140 100 v 18 M 150 100 v 26 M 160 100 v 14" />
+                <path d="M 128 122 h 36" />
+              </g>
+              <g fill="none" stroke="#2a2825" stroke-width="1">
+                <ellipse cx="350" cy="108" rx="22" ry="10" />
+                <path d="M 328 108 h 44" />
+              </g>
+              <circle cx="200" cy="104" r="5" stroke="#2a2825" fill="none" />
+              <path d="M 197 104 h 6" stroke="#2a2825" />
+
+              <rect x="118" y="198" width="52" height="34" rx="4" fill="none" stroke="#2a2825" />
+              <path d="M 124 206 h 40 M 124 212 h 28 M 124 218 h 34" stroke="#2a2825" stroke-width="0.9" />
+              <circle cx="250" cy="215" r="14" fill="none" stroke="#2a2825" />
+              <path d="M 244 215 h 12 M 250 209 v 12" stroke="#2a2825" />
+              <rect x="310" y="198" width="70" height="34" rx="4" fill="none" stroke="#2a2825" />
+              <path d="M 318 208 h 54 M 318 216 h 40 M 318 224 h 48" stroke="#2a2825" stroke-width="0.9" />
+
+              <rect x="168" y="318" width="56" height="38" rx="6" fill="none" stroke="#2a2825" />
+              <path d="M 178 328 h 36 M 178 336 h 24 M 178 344 h 30" stroke="#2a2825" stroke-width="0.85" />
+              <path d="M 248 328 h 52 a 8 8 0 0 1 8 8 v 16 a 8 8 0 0 1 -8 8 h -52 a 8 8 0 0 1 -8 -8 v -16 a 8 8 0 0 1 8 -8" fill="none" stroke="#2a2825" />
+              <circle cx="274" cy="344" r="5" fill="none" stroke="#2a2825" />
+              <path d="M 271 344 h 6 M 274 341 v 6" stroke="#2a2825" />
+              <rect x="330" y="322" width="48" height="32" rx="3" fill="none" stroke="#2a2825" />
+              <path d="M 336 330 h 36 M 336 338 h 22" stroke="#2a2825" stroke-width="0.85" />
+
+              <text x="196" y="378" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" fill="#5c5850">Web · CRM</text>
+              <text x="276" y="378" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" fill="#5c5850">WhatsApp</text>
+              <text x="354" y="378" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" fill="#5c5850">Automatización</text>
+
+              <path d="M 120 340 L 92 260" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
+              <path d="M 400 340 L 428 260" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
+              <path d="M 200 150 L 180 200" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
+              <path d="M 320 150 L 340 200" stroke="#a39e94" stroke-width="0.75" stroke-dasharray="2 4" fill="none" />
+              <path d="M 260 118 L 260 168" stroke="#6e6a62" stroke-width="1" stroke-dasharray="3 5" marker-end="url(#stack-arrow)" />
+              <path d="M 260 248 L 260 288" stroke="#6e6a62" stroke-width="1" stroke-dasharray="3 5" marker-end="url(#stack-arrow)" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
       <section id="platform" class="section">
         <div class="container">
           <div class="header-grid">
@@ -343,21 +600,141 @@ const pageDescription =
             <p class="lead">No vendemos tecnología. Vendemos horas recuperadas, costos reducidos y ventas que antes se perdían. Así se ven nuestras soluciones en la práctica.</p>
           </div>
           <div class="results-grid">
-            <article class="result">
-              <div class="result-icon"><i class="fa-solid fa-store"></i></div>
-              <div><h3>E-commerce</h3><p>Agente que atiende pedidos, gestiona devoluciones y responde WhatsApp sin intervención humana — de día y de noche</p></div>
+            <article
+              class="result"
+              style="--result-img: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=960&q=80');"
+            >
+              <a
+                class="result-hit"
+                href="#demo"
+                aria-label="E-commerce: agente que atiende pedidos y WhatsApp. Saber más."
+              >
+                <div class="result-head">
+                <div class="result-brand" aria-hidden="true">
+                  <svg viewBox="0 0 130 42" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="rbg0" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#FF6EE7" /><stop offset="50%" stop-color="#9B5CF6" /><stop offset="100%" stop-color="#00F5C4" />
+                      </linearGradient>
+                      <linearGradient id="rbt0" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#FF6EE7" /><stop offset="100%" stop-color="#00F5C4" />
+                      </linearGradient>
+                    </defs>
+                    <text x="2" y="30" font-size="28" font-weight="900" fill="#f7f7f4" font-family="Arial Black, system-ui, sans-serif" letter-spacing="3">ATAI</text>
+                    <rect x="38" y="6" width="48" height="6" rx="2" fill="url(#rbt0)" opacity="0.95" />
+                    <text x="64" y="40" text-anchor="middle" font-size="9" font-weight="800" fill="url(#rbg0)" font-family="Arial, system-ui, sans-serif" letter-spacing="4">SOLUTIONS</text>
+                  </svg>
+                </div>
+                <div class="result-icon-fa" aria-hidden="true"><i class="fa-solid fa-store"></i></div>
+                </div>
+                <div class="result-body">
+                  <h3 class="result-title">E-commerce</h3>
+                  <p>Agente que atiende pedidos, gestiona devoluciones y responde WhatsApp sin intervención humana — de día y de noche</p>
+                  <span class="result-more">Saber más ↗</span>
+                </div>
+              </a>
             </article>
-            <article class="result">
-              <div class="result-icon"><i class="fa-solid fa-handshake"></i></div>
-              <div><h3>Servicios profesionales</h3><p>Sistema que califica leads, envía cotizaciones y hace seguimiento automático hasta cerrar la venta o agendar la llamada</p></div>
+            <article
+              class="result"
+              style="--result-img: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=960&q=80');"
+            >
+              <a
+                class="result-hit"
+                href="#demo"
+                aria-label="Servicios profesionales: leads y cotizaciones. Saber más."
+              >
+                <div class="result-head">
+                <div class="result-brand" aria-hidden="true">
+                  <svg viewBox="0 0 130 42" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="rbg1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#FF6EE7" /><stop offset="50%" stop-color="#9B5CF6" /><stop offset="100%" stop-color="#00F5C4" />
+                      </linearGradient>
+                      <linearGradient id="rbt1" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#FF6EE7" /><stop offset="100%" stop-color="#00F5C4" />
+                      </linearGradient>
+                    </defs>
+                    <text x="2" y="30" font-size="28" font-weight="900" fill="#f7f7f4" font-family="Arial Black, system-ui, sans-serif" letter-spacing="3">ATAI</text>
+                    <rect x="38" y="6" width="48" height="6" rx="2" fill="url(#rbt1)" opacity="0.95" />
+                    <text x="64" y="40" text-anchor="middle" font-size="9" font-weight="800" fill="url(#rbg1)" font-family="Arial, system-ui, sans-serif" letter-spacing="4">SOLUTIONS</text>
+                  </svg>
+                </div>
+                <div class="result-icon-fa" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
+                </div>
+                <div class="result-body">
+                  <h3 class="result-title">Servicios profesionales</h3>
+                  <p>Sistema que califica leads, envía cotizaciones y hace seguimiento automático hasta cerrar la venta o agendar la llamada</p>
+                  <span class="result-more">Saber más ↗</span>
+                </div>
+              </a>
             </article>
-            <article class="result">
-              <div class="result-icon"><i class="fa-solid fa-chart-line"></i></div>
-              <div><h3>Empresas y pymes</h3><p>Dashboard con datos en tiempo real, alertas automáticas y reportes que antes tomaban horas en preparar</p></div>
+            <article
+              class="result"
+              style="--result-img: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=960&q=80');"
+            >
+              <a
+                class="result-hit"
+                href="#demo"
+                aria-label="Empresas y pymes: dashboards y reportes. Saber más."
+              >
+                <div class="result-head">
+                <div class="result-brand" aria-hidden="true">
+                  <svg viewBox="0 0 130 42" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="rbg2" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#FF6EE7" /><stop offset="50%" stop-color="#9B5CF6" /><stop offset="100%" stop-color="#00F5C4" />
+                      </linearGradient>
+                      <linearGradient id="rbt2" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#FF6EE7" /><stop offset="100%" stop-color="#00F5C4" />
+                      </linearGradient>
+                    </defs>
+                    <text x="2" y="30" font-size="28" font-weight="900" fill="#f7f7f4" font-family="Arial Black, system-ui, sans-serif" letter-spacing="3">ATAI</text>
+                    <rect x="38" y="6" width="48" height="6" rx="2" fill="url(#rbt2)" opacity="0.95" />
+                    <text x="64" y="40" text-anchor="middle" font-size="9" font-weight="800" fill="url(#rbg2)" font-family="Arial, system-ui, sans-serif" letter-spacing="4">SOLUTIONS</text>
+                  </svg>
+                </div>
+                <div class="result-icon-fa" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></div>
+                </div>
+                <div class="result-body">
+                  <h3 class="result-title">Empresas y pymes</h3>
+                  <p>Dashboard con datos en tiempo real, alertas automáticas y reportes que antes tomaban horas en preparar</p>
+                  <span class="result-more">Saber más ↗</span>
+                </div>
+              </a>
             </article>
-            <article class="result">
-              <div class="result-icon"><i class="fa-solid fa-network-wired"></i></div>
-              <div><h3>Empresas y Soluciones IoT</h3><p>¡Lleve su negocio al siguiente nivel con la transformación digital! Una herramienta clave para transformar su negocio y potenciar su presencia en Internet.</p></div>
+            <article
+              class="result"
+              style="--result-img: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=960&q=80');"
+            >
+              <a
+                class="result-hit"
+                href="#demo"
+                aria-label="Empresas y soluciones IoT. Saber más."
+              >
+                <div class="result-head">
+                <div class="result-brand" aria-hidden="true">
+                  <svg viewBox="0 0 130 42" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="rbg3" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#FF6EE7" /><stop offset="50%" stop-color="#9B5CF6" /><stop offset="100%" stop-color="#00F5C4" />
+                      </linearGradient>
+                      <linearGradient id="rbt3" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#FF6EE7" /><stop offset="100%" stop-color="#00F5C4" />
+                      </linearGradient>
+                    </defs>
+                    <text x="2" y="30" font-size="28" font-weight="900" fill="#f7f7f4" font-family="Arial Black, system-ui, sans-serif" letter-spacing="3">ATAI</text>
+                    <rect x="38" y="6" width="48" height="6" rx="2" fill="url(#rbt3)" opacity="0.95" />
+                    <text x="64" y="40" text-anchor="middle" font-size="9" font-weight="800" fill="url(#rbg3)" font-family="Arial, system-ui, sans-serif" letter-spacing="4">SOLUTIONS</text>
+                  </svg>
+                </div>
+                <div class="result-icon-fa" aria-hidden="true"><i class="fa-solid fa-network-wired"></i></div>
+                </div>
+                <div class="result-body">
+                  <h3 class="result-title">Empresas y Soluciones IoT</h3>
+                  <p>¡Lleve su negocio al siguiente nivel con la transformación digital! Una herramienta clave para transformar su negocio y potenciar su presencia en Internet.</p>
+                  <span class="result-more">Saber más ↗</span>
+                </div>
+              </a>
             </article>
           </div>
         </div>
