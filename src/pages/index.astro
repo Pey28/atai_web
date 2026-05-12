@@ -204,9 +204,7 @@ const pageDescription =
 
     <main id="content">
       <section class="hero">
-        <video autoplay muted loop playsinline>
-          <source src="https://storage.googleapis.com/ew-assets/happyrobot/happyrobot-new-hero-video-only-new-2026-02.mp4" type="video/mp4" />
-        </video>
+        <video id="heroVideo" autoplay muted playsinline aria-hidden="true"></video>
         <div class="container hero-content">
           <h1>Tu negocio operando en piloto automático</h1>
           <div class="hero-actions">
@@ -320,6 +318,26 @@ const pageDescription =
     </footer>
 
     <script>
+      const heroSources = [
+        "https://assets.mixkit.co/videos/4872/4872-720.mp4",
+        "https://assets.mixkit.co/videos/242/242-720.mp4",
+        "https://assets.mixkit.co/videos/1732/1732-720.mp4",
+      ];
+      const heroVideo = document.getElementById("heroVideo");
+      let heroIndex = 0;
+      if (heroVideo) {
+        const playHeroClip = () => {
+          heroVideo.src = heroSources[heroIndex];
+          heroVideo.load();
+          heroVideo.play().catch(() => {});
+        };
+        heroVideo.addEventListener("ended", () => {
+          heroIndex = (heroIndex + 1) % heroSources.length;
+          playHeroClip();
+        });
+        playHeroClip();
+      }
+
       const form = document.getElementById("demoForm");
       const msg = document.getElementById("msg");
       if (form && msg) {
