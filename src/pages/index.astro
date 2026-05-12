@@ -128,6 +128,7 @@ const pageDescription =
         text-align: center;
         padding: 3rem 1.4rem;
       }
+      .cta h2 { max-width: none; }
 
       .chips { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.4rem; }
       .chip {
@@ -159,7 +160,31 @@ const pageDescription =
 
     <header class="navbar">
       <div class="container nav-inner">
-        <a class="logo" href="#">ATAI</a>
+        <a class="logo" href="#" aria-label="ATAI Solutions">
+          <svg width="110" viewBox="0 0 510 210" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gtext" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#FF6EE7"/>
+                <stop offset="50%" stop-color="#9B5CF6"/>
+                <stop offset="100%" stop-color="#00F5C4"/>
+              </linearGradient>
+              <linearGradient id="gt" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FF6EE7"/>
+                <stop offset="100%" stop-color="#00F5C4"/>
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <text x="30" y="140" font-size="110" font-weight="900" fill="white" font-family="Arial Black,sans-serif" letter-spacing="4">A</text>
+            <text x="150" y="140" font-size="110" font-weight="900" fill="white" font-family="Arial Black,sans-serif" letter-spacing="4">T</text>
+            <rect x="144" y="22" width="94" height="12" rx="3" fill="url(#gt)" filter="url(#glow)"/>
+            <text x="268" y="140" font-size="110" font-weight="900" fill="white" font-family="Arial Black,sans-serif" letter-spacing="4">A</text>
+            <text x="390" y="140" font-size="110" font-weight="900" fill="white" font-family="Arial Black,sans-serif" letter-spacing="4">I</text>
+            <text x="250" y="172" text-anchor="middle" font-size="13" font-weight="600" fill="url(#gtext)" font-family="Arial,sans-serif" letter-spacing="10">S O L U T I O N S</text>
+          </svg>
+        </a>
         <nav class="menu" aria-label="Navegación principal">
           <a href="#expertise">Servicios</a>
           <a href="#platform">Cómo funciona</a>
@@ -255,7 +280,7 @@ const pageDescription =
         <div class="container">
           <h2>Trabajamos con todo tipo de negocio</h2>
           <div class="chips">
-            <span class="chip">E-commerce</span><span class="chip">Agencias</span><span class="chip">Retail</span><span class="chip">Manufactura</span><span class="chip">Atención al Cliente</span><span class="chip">Ventas B2B</span><span class="chip">Operaciones</span><span class="chip">RRHH y Reclutamiento</span><span class="chip">Salud</span><span class="chip">Bienes raíces</span><span class="chip">IoT & Transformación Digital</span>
+            <span class="chip">E-commerce</span><span class="chip">Agencias</span><span class="chip">Retail</span><span class="chip">Manufactura</span><span class="chip">Atención al Cliente</span><span class="chip">Ventas B2B</span><span class="chip">Operaciones</span><span class="chip">RRHH y Reclutamiento</span><span class="chip">Salud</span><span class="chip">Bienes raíces</span>
           </div>
           <form id="demoForm" class="form" aria-label="Formulario de contacto">
             <input type="text" name="name" placeholder="Tu nombre" required />
