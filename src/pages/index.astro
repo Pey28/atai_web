@@ -88,7 +88,7 @@ const pageDescription =
           name: "¿Qué es un chatbot para empresas en San Carlos, Costa Rica?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Un chatbot es un agente de inteligencia artificial que atiende a tus clientes automáticamente por WhatsApp, web o redes sociales24 horas al día, 7 días a la semana. ATAI implementa chatbots a medida para negocios en San Carlos, Ciudad Quesada y toda Costa Rica."
+            text: "Un chatbot de voz es un agente de inteligencia artificial que atiende a tus clientes por voz, transcribe automáticamente cada conversación y gestiona tareas sin intervención humana, 24 horas al día, 7 días a la semana. ATAI implementa chatbots de voz a medida para negocios en San Carlos, Ciudad Quesada y toda Costa Rica."
           }
         },
         {
@@ -112,7 +112,7 @@ const pageDescription =
           name: "¿Cómo puede un chatbot ayudar a mi negocio en San Carlos?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Un chatbot puede responder preguntas frecuentes, agendar citas, calificar leads, procesar pedidos y hacer seguimiento automático de clientessin que necesites personal adicional. Empresas en San Carlos ya están ahorrando horas de trabajo manual con nuestras soluciones."
+            text: "Un chatbot de voz puede atender llamadas, responder preguntas frecuentes, agendar citas, calificar leads y transcribir cada conversación automáticamente, sin que necesites personal adicional. Empresas en San Carlos ya están ahorrando horas de trabajo manual con nuestras soluciones."
           }
         },
         {
@@ -469,11 +469,31 @@ const pageDescription =
 
       @media (max-width: 960px) {
         .menu { display: none; }
+        .nav-inner { grid-template-columns: auto auto; justify-content: space-between; }
         .header-grid, .results-grid, .philo, .form, .lines { grid-template-columns: 1fr; }
+        .lines .line:last-child:nth-child(odd) { max-width: 100%; }
         .hero { min-height: 72vh; }
+        .section { padding: 3.5rem 0; }
         .stack-split { grid-template-columns: 1fr; }
         .stack-copy h2 { max-width: none; }
         .stack-visual { order: -1; }
+        .philo { grid-template-columns: 1fr; }
+        .cta { padding: 2rem 1rem; border-radius: .75rem; }
+        .result { min-height: 220px; }
+        .result-hit { min-height: 220px; }
+      }
+
+      @media (max-width: 480px) {
+        .navbar .btn.dark { font-size: .82rem; padding: .55rem .75rem; }
+        h1 { font-size: clamp(2rem, 11vw, 3rem); }
+        h2 { font-size: clamp(1.5rem, 7vw, 2.2rem); }
+        .hero-actions { flex-direction: column; align-items: center; }
+        .hero-actions .btn { width: 100%; max-width: 300px; justify-content: center; }
+        .form { grid-template-columns: 1fr; }
+        .results-grid { gap: .7rem; }
+        .lines { gap: .65rem; }
+        footer { font-size: .8rem; text-align: center; }
+        footer .container { display: flex; flex-direction: column; gap: .4rem; align-items: center; }
       }
     </style>
   </head>
@@ -526,7 +546,7 @@ const pageDescription =
             <div><p class="lead">Implementamos chatbots inteligentes, diseñamos sitios web profesionales y desarrollamos software a medida para empresas en San Carlos y toda Costa Ricatodo integrado para que tu negocio crezca sin contratar más personal.</p><a href="#demo" class="btn dark" style="margin-top:1rem;">Quiero una consulta gratis</a></div>
           </div>
           <div class="lines">
-            <div class="line"><p><strong>Chatbot para empresas en San Carlos:</strong> Agentes de IA que atienden clientes por WhatsApp y web, gestionan tareas y responden 24/7 sin que tengas que intervenir</p></div>
+            <div class="line"><p><strong>Chatbot de voz para empresas en San Carlos:</strong> Agentes de IA que atienden clientes por voz, transcriben la conversación y gestionan tareas automáticamente las 24 horas sin que tengas que intervenir</p></div>
             <div class="line"><p><strong>Automatización de procesos:</strong> Conectamos tus herramientas y eliminamos el trabajo repetitivo con flujos inteligentes para negocios en Costa Rica que quieren operar de manera más eficiente</p></div>
             <div class="line"><p><strong>Diseño web profesional en San Carlos:</strong> Sitios web modernos, rápidos y optimizados para Google, construidos para convertir visitas en clientes reales</p></div>
             <div class="line"><p><strong>Software a medida en Costa Rica:</strong> CRMs, dashboards, APIs y sistemas internos desarrollados exactamente como tu negocio los necesita, sin soluciones genéricas</p></div>
@@ -667,7 +687,7 @@ const pageDescription =
                 </div>
                 <div class="result-body">
                   <h3 class="result-title">E-commerce</h3>
-                  <p>Agente que atiende pedidos, gestiona devoluciones y responde WhatsApp sin intervención humanade día y de noche</p>
+                  <p>Agente de voz que atiende pedidos, gestiona devoluciones y transcribe cada conversación automáticamente, de día y de noche</p>
                   <span class="result-more">Saber más ↗</span>
                 </div>
               </a>
@@ -759,7 +779,7 @@ const pageDescription =
             <p class="lead">Todo lo que necesitás saber sobre nuestros servicios para empresas en la Zona Norte de Costa Rica.</p>
           </div>
           <div class="lines">
-            <div class="line"><p><strong>¿Qué es un chatbot para empresas en San Carlos?</strong> Es un agente de IA que atiende a tus clientes automáticamente por WhatsApp o tu sitio websin que intervengas, las 24 horas del día. Ideal para negocios en San Carlos, Ciudad Quesada y toda la Zona Norte.</p></div>
+            <div class="line"><p><strong>¿Qué es un chatbot de voz para empresas en San Carlos?</strong> Es un agente de IA que atiende a tus clientes por voz, transcribe automáticamente cada conversación y gestiona tareas sin que intervengas, las 24 horas del día. Ideal para negocios en San Carlos, Ciudad Quesada y toda la Zona Norte.</p></div>
             <div class="line"><p><strong>¿Hacen diseño web profesional en San Carlos, Costa Rica?</strong> Sí. Creamos páginas web modernas, rápidas y optimizadas para Google. Tu sitio web queda conectado con el chatbot y los sistemas de tu negocio desde el primer día.</p></div>
             <div class="line"><p><strong>¿Qué es software a medida y por qué lo necesito?</strong> Es un sistema diseñado para tu negocio específico: CRM, dashboard, app de gestión, API. Si los programas genéricos no te sirven, desarrollamos exactamente lo que necesitásen Costa Rica, a precio justo.</p></div>
             <div class="line"><p><strong>¿Cuánto tiempo tarda un chatbot o sitio web en estar listo?</strong> La mayoría de proyectos están en producción en 2 a 4 semanas. Arrancamos con un diagnóstico gratuito y construimos desde ahí sin burocracia.</p></div>
