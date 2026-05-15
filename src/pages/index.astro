@@ -374,12 +374,10 @@ const pageDescription =
       .philo-item p { margin: 0; color: #bebebb; line-height: 1.68; }
 
       .cta {
-        margin-top: 2rem;
-        border-radius: 1.6rem;
         position: relative;
         overflow: hidden;
         text-align: center;
-        padding: 6rem 2rem 5.5rem;
+        padding: 7rem 2rem 6.5rem;
         background: #000;
         color: #f7f7f4;
         isolation: isolate;
@@ -426,6 +424,72 @@ const pageDescription =
         transform: translateY(-3px) scale(1.03);
         box-shadow: 0 0 48px rgba(0,245,196,.6), 0 0 96px rgba(204,68,255,.35);
       }
+
+      /* ── Process cards (#platform) ─────────────────────── */
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 1.2rem;
+        position: relative;
+      }
+      .process-grid::before {
+        content: '';
+        position: absolute;
+        top: 50%; left: 3rem; right: 3rem;
+        height: 1px;
+        background: linear-gradient(90deg, transparent 0%, rgba(0,245,196,.18) 30%, rgba(204,68,255,.18) 70%, transparent 100%);
+        pointer-events: none;
+      }
+      .process-grid::after {
+        content: '';
+        position: absolute;
+        top: calc(50% - 4px); left: 50%;
+        transform: translateX(-50%);
+        width: 8px; height: 8px; border-radius: 50%;
+        background: linear-gradient(135deg, #CC44FF, #00F5C4);
+        box-shadow: 0 0 12px rgba(0,245,196,.5);
+        pointer-events: none;
+      }
+      .process-card {
+        position: relative; z-index: 1;
+        border: 1px solid #222;
+        border-radius: 1.2rem;
+        padding: 2rem 1.8rem 1.9rem;
+        background: rgba(255,255,255,.022);
+        box-shadow: 0 4px 28px rgba(0,0,0,.38);
+        display: flex; flex-direction: column; gap: 1.1rem;
+        text-align: left;
+        overflow: hidden;
+        transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      }
+      .process-card::before {
+        content: '';
+        position: absolute; top: 0; left: 0; right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0,245,196,.5), rgba(204,68,255,.4), transparent);
+        opacity: 0; transition: opacity .3s;
+      }
+      .process-card:hover { transform: translateY(-6px); box-shadow: 0 18px 52px rgba(0,0,0,.55), 0 0 0 1px rgba(0,245,196,.22); border-color: rgba(0,245,196,.25); }
+      .process-card:hover::before { opacity: 1; }
+      .process-top { display: flex; align-items: center; justify-content: space-between; }
+      .process-icon {
+        width: 58px; height: 58px; border-radius: .9rem; flex-shrink: 0;
+        background: linear-gradient(135deg, rgba(204,68,255,.12), rgba(0,245,196,.12));
+        border: 1px solid rgba(0,245,196,.16);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.45rem;
+      }
+      .process-icon i {
+        background: linear-gradient(135deg, #CC44FF, #00F5C4);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      }
+      .process-step {
+        font-size: .68rem; font-weight: 800; letter-spacing: .16em;
+        color: rgba(255,255,255,.12); user-select: none;
+        font-variant-numeric: tabular-nums;
+      }
+      .process-card h3 { margin: 0; font-size: 1.15rem; font-weight: 700; color: #f7f7f4; line-height: 1.2; }
+      .process-card p { margin: 0; font-size: .91rem; line-height: 1.72; color: #707070; }
 
       .chips { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.4rem; }
       .chip {
@@ -579,32 +643,46 @@ const pageDescription =
       @media (max-width: 960px) {
         .menu { display: none; }
         .nav-inner { grid-template-columns: auto auto; justify-content: space-between; }
-        .header-grid, .results-grid, .philo, .form, .lines { grid-template-columns: 1fr; }
+        .header-grid, .philo, .form, .lines { grid-template-columns: 1fr; }
         .lines .line:last-child:nth-child(odd) { max-width: 100%; }
+        .results-grid { grid-template-columns: 1fr; gap: .9rem; }
+        .result { min-height: 300px; }
+        .result-hit { min-height: 300px; }
+        .result-hit p { opacity: 1; transform: none; color: rgba(247,247,244,.5); }
         .hero { min-height: 72vh; }
         .section { padding: 3.5rem 0; }
         .stack-split { grid-template-columns: 1fr; }
         .stack-copy h2 { max-width: none; }
         .stack-visual { order: -1; }
         .philo { grid-template-columns: 1fr; }
-        .cta { padding: 2rem 1rem; border-radius: .75rem; }
-        .result { min-height: 280px; }
-        .result-hit { min-height: 280px; }
-        .result-hit p { opacity: 1; transform: none; color: rgba(247,247,244,.5); }
+        .process-grid { grid-template-columns: 1fr; }
+        .process-grid::before, .process-grid::after { display: none; }
+        .cta { padding: 5rem 1.4rem 4.5rem; }
+        .cta h2 { font-size: clamp(2rem, 8vw, 3rem); }
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .footer-bottom { flex-direction: column; text-align: center; }
       }
 
       @media (max-width: 480px) {
-        .navbar .btn.dark { font-size: .82rem; padding: .55rem .75rem; }
+        .navbar .btn.dark { font-size: .8rem; padding: .5rem .7rem; }
         h1 { font-size: clamp(2rem, 11vw, 3rem); }
         h2 { font-size: clamp(1.5rem, 7vw, 2.2rem); }
         .hero-actions { flex-direction: column; align-items: center; }
         .hero-actions .btn { width: 100%; max-width: 300px; justify-content: center; }
+        .btn-cta { width: 100%; max-width: 280px; justify-content: center; }
         .form { grid-template-columns: 1fr; }
-        .results-grid { gap: .7rem; }
         .lines { gap: .65rem; }
-        .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .footer-bottom { flex-direction: column; text-align: center; }
-        .cta { padding: 4rem 1.2rem 3.5rem; }
+        .line { padding: 1.4rem 1.2rem; }
+        .process-card { padding: 1.5rem 1.3rem; }
+        .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+        .footer-bottom { flex-direction: column; text-align: center; font-size: .78rem; }
+        .result { min-height: 260px; }
+        .result-hit { min-height: 260px; }
+        .result-title { font-size: 1.3rem; }
+        .cta { padding: 4rem 1rem 3.5rem; }
+        .cta h2 { font-size: clamp(1.8rem, 9vw, 2.5rem); }
+        .cta-sub { font-size: .88rem; }
+        .philo-item { padding: .9rem; }
       }
     </style>
   </head>
@@ -789,11 +867,35 @@ const pageDescription =
             <div><p class="tag">nuestro proceso</p><h2>De idea a resultados en semanas, no meses</h2></div>
             <p class="lead">Sin burocracia ni proyectos eternos. Arrancamos rápido, medimos desde el día uno y ajustamos hasta que los números hablen solos.</p>
           </div>
-          <div class="lines">
-            <div class="line"><p><strong>Diagnóstico:</strong> Analizamos tu operación e identificamos los puntos donde la automatización genera mayor impacto y retorno</p></div>
-            <div class="line"><p><strong>Diseño:</strong> Construimos la arquitectura de la solución: qué herramientas, qué agentes, qué flujos antes de escribir una sola línea de código</p></div>
-            <div class="line"><p><strong>Construcción:</strong> Desarrollamos e integramos con lo que ya usas. Sin migrar todo, sin interrumpir tu operación actual</p></div>
-            <div class="line"><p><strong>Escala:</strong> Monitoreamos, optimizamos y expandimos. Tu solución mejora con el tiempo sin que tengas que hacer nada</p></div>
+          <div class="process-grid">
+            <div class="process-card">
+              <div class="process-top">
+                <div class="process-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+              </div>
+              <h3>Diagnóstico</h3>
+              <p>Analizamos tu operación e identificamos los puntos donde la automatización genera mayor impacto y retorno</p>
+            </div>
+            <div class="process-card">
+              <div class="process-top">
+                <div class="process-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+              </div>
+              <h3>Diseño</h3>
+              <p>Construimos la arquitectura de la solución: qué herramientas, qué agentes, qué flujos antes de escribir una sola línea de código</p>
+            </div>
+            <div class="process-card">
+              <div class="process-top">
+                <div class="process-icon"><i class="fa-solid fa-hammer"></i></div>
+              </div>
+              <h3>Construcción</h3>
+              <p>Desarrollamos e integramos con lo que ya usas. Sin migrar todo, sin interrumpir tu operación actual</p>
+            </div>
+            <div class="process-card">
+              <div class="process-top">
+                <div class="process-icon"><i class="fa-solid fa-rocket"></i></div>
+              </div>
+              <h3>Escala</h3>
+              <p>Monitoreamos, optimizamos y expandimos. Tu solución mejora con el tiempo sin que tengas que hacer nada</p>
+            </div>
           </div>
         </div>
       </section>
@@ -923,7 +1025,7 @@ const pageDescription =
         </div>
       </section>
 
-      <section id="demo" class="container cta">
+      <section id="demo" class="cta">
         <h2>¿Cuánto te cuesta no automatizar?</h2>
         <span class="cta-sub">Cada semana sin automatización es tiempo y dinero que no vuelve. Hablemos hoy.</span>
         <a class="btn-cta" href="https://wa.me/50660173449" target="_blank" rel="noopener noreferrer">
